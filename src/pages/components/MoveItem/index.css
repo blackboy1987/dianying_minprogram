@@ -1,0 +1,53 @@
+.item{
+    box-sizing: border-box;
+    width:240px;
+    min-width: 240px;
+    max-width: 240px;
+}
+
+.item .block{
+    margin:15px;
+
+}
+
+.item .block .box{
+    width: 210px;
+    height: 317px;
+    position: relative;
+    background-color: #333;
+}
+
+.item .block .box Image{
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+
+}
+.item .block .box .lang{
+    position: absolute;
+    top: 20px;
+    background-color: rgba(57,180,73,0.7);
+}
+.item .block .box .remarks{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.item .block .title{
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
