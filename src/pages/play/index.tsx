@@ -2,14 +2,33 @@ import * as React from 'react';
 import { View, Text,Button } from 'remax/one';
 import {Video,RichText} from 'remax/wechat';
 import classNames from 'classnames';
+import {usePageEvent} from "remax/macro";
 
 import styles from './index.css';
+import BannerAd from "@/pages/components/Add/BannerAd";
+import {interstitialAdPlay} from "@/pages/components/Add/interstitialAd";
+import VideoAd from "@/pages/components/Add/VideoAd";
 
 const Play = () => {
+
+    usePageEvent('onShow',()=>{
+
+    });
+
+
   return (
     <View className={styles.app}>
       <View className={styles.play}>
         <Video
+            onPlay={(e)=>console.log("play",e)}
+            onPause={(e)=>console.log("onPause",e)}
+            onEnded={(e)=>console.log("onEnded",e)}
+            onFullScreenChange={(e)=>console.log("onFullScreenChange",e)}
+            onWaiting={(e)=>wx.showToast({
+                title:'网络不通畅，看会广告缓冲一下吧',
+                icon:'none'
+            })}
+            onError={(e)=>console.log("onError",e)}
             style={{width:'100%'}}
             autoplay
             controls
