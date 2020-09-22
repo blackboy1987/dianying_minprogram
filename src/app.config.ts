@@ -1,6 +1,6 @@
 const pages = [
-    'pages/play/index',
-    'pages/index/index'
+    'pages/index/index',
+    'pages/play/index'
 ];
 const color = '#282c34';
 
@@ -14,6 +14,7 @@ export const wechat: WechatAppConfig = {
   window: {
     navigationBarBackgroundColor: color,
     navigationBarTitleText: 'Remax One Wechat',
+    enablePullDownRefresh:true,
   },
 };
 

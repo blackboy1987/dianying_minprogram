@@ -4,14 +4,23 @@
 }
 
 .scrollView{
-    width: 100%;
     white-space: nowrap;
+    height: 100px;
+    display: flex;
 }
 .scrollViewItem{
     height: 90px;
     display: inline-block;
     line-height: 90px;
-    margin: 0 10px 20px;
+    margin: 0 10px;
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
+}
+
+.scrollViewItemCurrent{
+    border-bottom: 4px solid;
 }
 
 .swiper{
