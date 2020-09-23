@@ -2,13 +2,13 @@ export interface RewardedVideoAd {
     adUnitId:string;
     load?:()=>void;
     error?:(err?:any)=>void;
-    close:(res?:any)=>void;
+    close?:(res?:any)=>void;
 }
 let rewardedVideoAd:any = null;
 
 
 export const rewardedVideoAdPlay=({adUnitId,load,error,close}:RewardedVideoAd)=>{
-    if(wx.createRewardedVideoAd){
+    if(wx.createRewardedVideoAd&&rewardedVideoAd==null){
         rewardedVideoAd = wx.createRewardedVideoAd({ adUnitId })
         rewardedVideoAd.onLoad(()=>{
             if(load){
