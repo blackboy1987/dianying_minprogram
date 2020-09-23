@@ -1,0 +1,74 @@
+.item{
+    padding-top: 0px;
+    padding-bottom: 10px;
+    width: 50%;
+    position: relative;
+    display: flex;
+    transition-duration: 0s;
+    flex-direction: column;
+    transition: all .6s ease-in-out 0s;
+    transform: translateX(0px);
+}
+.itemVideo{
+    width: 345px;
+    box-shadow: 1px 1px 5px #bbb;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #fff;
+}
+.videoItemBanner{
+    position: relative;
+    box-sizing: border-box;
+}
+.videoItemBanner Image{
+    width: 345px;
+    height: 200px;
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+}
+.videoItemBanner .videoItemBannerVersion {
+    position: absolute;
+    color: #fff;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    bottom: 10px;
+    background-color: rgba(0,0,0,0.3);
+}
+.videoItemBanner .videoItemBannerVersionFlex {
+    display: flex;
+    font-size:24px;
+}
+.videoItemBanner .videoItemBannerVersionFlex .lang {
+    text-align: left;
+    padding-left: 20px;
+}
+.videoItemBanner .videoItemBannerVersionFlex .remarks {
+    text-align: right;
+    flex:3;
+}
+.videoBasic{
+    height: 80px;
+    padding: 0 15px;
+}
+.videoBasic .videoTitle{
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size:28px;
+}
+.videoBasic .text{
+    font-size: 24px;
+    display: flex;
+}
+.videoBasic .text .left{
+    text-align: left;
+    flex: 1;
+}
+.videoBasic .text.right{
+    text-align: right;
+    flex: 1;
+}

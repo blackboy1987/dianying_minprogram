@@ -1,0 +1,27 @@
+.item{
+    box-sizing: border-box;
+    width: 345px;
+    box-shadow: 1px 1px 5px #bbb;
+    border-radius: 15px;
+    overflow: hidden;
+    margin: 0 auto;
+    background-color: #fff;
+
+}
+
+.item:nth-child(3n+1){
+    margin-left: 8px;
+}
+.item:nth-child(3n+2){
+    margin-right: 7px;
+    margin-left: 7px
+}
+.item:nth-child(3n){
+    margin-right: 8px;
+}
+
+
+.item Image{
+    width:100%;
+    border-radius: 20px;
+}

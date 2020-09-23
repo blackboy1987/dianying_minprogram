@@ -1,0 +1,107 @@
+
+.app{
+
+}
+
+.scrollView{
+    white-space: nowrap;
+    height: 100px;
+    display: flex;
+}
+.scrollViewItem{
+    height: 90px;
+    display: inline-block;
+    line-height: 90px;
+    margin: 0 10px;
+    padding: 0 20px;
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
+}
+
+.scrollViewItemCurrent{
+    border-bottom: 4px solid;
+}
+
+.swiper{
+    padding:0;
+}
+.swiper Image{
+    width: 100%;
+}
+.swiperItemTitle{
+    position: absolute;
+    width: 100%;
+    height: 100px;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    font-size: 36px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.hot{
+    padding:0 15px;
+}
+
+.hotTitle{
+    position: relative;
+    align-items: center;
+    height: 80px;
+    line-height: 80px;
+    border:solid 1px red;
+}
+
+.abc{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.abc .item{
+    box-sizing: border-box;
+    width:240px;
+    min-width: 240px;
+    max-width: 240px;
+    padding:10px;
+    border:solid 1px red;
+}
+.abc .item .box{
+    width: 220px;
+    height: 317px;
+    position: relative;
+    background-color: #333;
+}
+.abc .item .box Image{
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    display: inline-block;
+    position: relative;
+    z-index: 0;
+
+}
+.abc .item .box .lang{
+    position: absolute;
+    top: 20px;
+    background-color: rgba(57,180,73,0.7);
+}
+.abc .item .box .remarks{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    color: #fff;
+    background-color: rgba(0,0,0,0.5);
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.abc .item .title{
+    height: 50px;
+    line-height: 50px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}

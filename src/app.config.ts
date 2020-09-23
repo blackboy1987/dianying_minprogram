@@ -1,5 +1,5 @@
 const pages = [
-    'pages/index/index',
+    'pages/shouye/index',
     'pages/play/index'
 ];
 const color = '#282c34';
