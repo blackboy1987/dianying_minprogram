@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'remax/one';
+import { View,Text } from 'remax/one';
 import styles from './index.css';
 import {Movie, MovieCategory, ResponseData} from "@/data";
 import request from "@/util/request";
@@ -47,15 +47,15 @@ class IndexPage extends React.Component<IndexProps> {
             <View className={styles.index}>
                 <SwiperImage />
                 <View className={styles.hotMovies}>
-                    <View className={styles.title}>热播电影</View>
+                    <View className={styles.title}><Text className='iconfont icon-shipin' />热播电影</View>
                     <MovieList3 movies={hotMovies} />
                 </View>
                 <View className={styles.hottv}>
-                    <View className={styles.title}>热播电影</View>
+                    <View className={styles.title}><Text className='iconfont icon-shipin' />热播电影</View>
                     <MovieList3 movies={hottv} />
                 </View>
                 <View className={styles.news}>
-                    <View className={styles.title}>热播电影</View>
+                    <View className={styles.title}><Text className='iconfont icon-shipin' />热播电影</View>
                     <MovieList2 movies={news} />
                 </View>
             </View>

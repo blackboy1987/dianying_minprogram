@@ -3,12 +3,20 @@
 
 }
 .tool{
-    height:60px;
-    line-height: 60px;
-    color:red;
+    height:80px;
+    line-height: 80px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.tool View{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
 }
 
 .line{
+    margin-top: 64px;
     padding: 16px;
 }
 .line .bar{

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text,Button } from 'remax/one';
-import {Video,RichText} from 'remax/wechat';
+import {Video,RichText,Picker} from 'remax/wechat';
 import classNames from 'classnames';
 import {usePageEvent} from "remax/macro";
 
@@ -9,18 +9,31 @@ import BannerAd from "@/pages/components/Add/BannerAd";
 import {interstitialAdPlay} from "@/pages/components/Add/interstitialAd";
 import VideoAd from "@/pages/components/Add/VideoAd";
 import {rewardedVideoAdPlay} from "@/pages/components/Add/rewardedVideoAd";
+import {useState} from "react";
+
+const rates:number[] = [ .5, .8, 1, 1.25, 1.5, 2 ]
 
 const Play = () => {
-
+    const [rate,setRate] = useState<number>(2);
+    const [video,setVideo] = useState<any>(null);
     usePageEvent('onShow',()=>{
-
+        video.play();
     });
 
+    usePageEvent('onLoad',()=>{
+        setVideo(wx.createVideoContext("myVideo"));
+    })
+
+    const changeRage=(e)=>{
+        setRate(rates[e.detail.value]);
+        video.playbackRate(rates[e.detail.value]);
+    }
 
   return (
     <View className={styles.app}>
       <View className={styles.play}>
         <Video
+            id='myVideo'
             onPlay={(e)=>console.log("play",e)}
             onPause={(e)=>{
                 interstitialAdPlay({
@@ -40,7 +53,6 @@ const Play = () => {
             }}
             onError={(e)=>console.log("onError",e)}
             style={{width:'100%'}}
-            autoplay
             controls
             showCastingButton
             danmuList={[{
@@ -65,10 +77,25 @@ const Play = () => {
         />
       </View>
       <View className={styles.tool}>
-        <Text className="icon iconfont icon-weixin" />
-        <Text className="icon iconfont icon-kefu" />
-        <Text className="icon iconfont icon-ai19" />
-        <Text className="icon iconfont icon-chakantiezigengduo" />
+          <View>
+              <Text className="icon48 iconfont icon-weixin" />
+              <Text>分享好友</Text>
+          </View>
+          <View>
+              <Text className="icon48 iconfont icon-kefu" />
+              <Text>联系客服</Text>
+          </View>
+        <View>
+            <Text className="icon48 iconfont icon-xiazai" />
+            <Text>联系客服</Text>
+        </View>
+
+          <View>
+              <Picker onChange={changeRage} value={rate} range={rates} style={{display:'flex'}}>
+                  <Text className="icon48 iconfont icon-ai19" />
+                  <View>1x 倍</View>
+              </Picker>
+          </View>
       </View>
         <View className={styles.line}>
             <View className={styles.bar}>
@@ -142,14 +169,13 @@ const Play = () => {
 
         <View className={styles.videoInfo}>
             <View className={styles.action}>
-                <Text className="icon iconfont icon-light" />
+                <Text className="icon48 iconfont icon-icon_huabanfuben" />
                 剧情
             </View>
             <View className={styles.text}>
-                <RichText nodes="haha" />
+                <RichText nodes="《假面骑士Zi-O》（日语：仮面ライダージオウ）是2018年播出的日本特摄电视剧，也是“平成假面骑士”系列最后一部第20部作品。" />
             </View>
         </View>
-
     </View>
   );
 };
