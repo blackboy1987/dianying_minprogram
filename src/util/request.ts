@@ -15,6 +15,7 @@ export interface RequestOption{
 
 
 const request = (url:string,callback:(data:any)=>void,options?:any)=>{
+    console.log("url",url);
     if(!options){
         options = {};
     }

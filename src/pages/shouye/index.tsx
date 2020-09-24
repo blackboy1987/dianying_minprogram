@@ -1,103 +1,91 @@
 import * as React from 'react';
-import { View, Text } from 'remax/one';
-import {ScrollView,Swiper,SwiperItem,Image} from 'remax/wechat';
-import styles from './index.css';
-import MovieList from "@/pages/components/MovieList";
-import SwiperImage from "@/pages/components/SwiperImage";
+import { View } from 'remax/one';
+import {ScrollView,Swiper,SwiperItem} from 'remax/wechat';
 import {usePageEvent} from 'remax/macro';
 import request from "@/util/request";
 import {useState} from "react";
-import {Movie, MovieCategory} from "@/data";
+import {MovieCategory, SystemInfo} from "@/data";
 import classNames from 'classnames';
-import Tabs from "@/pages/components/Tabs";
-
-export interface Data {
-  new:Movie[];
-  hotMovies:Movie[];
-  hottv:Movie[];
-  categories:MovieCategory[]
-}
-
-
-const defaultNavData = [
-  {
-    text: '首页'
-  },
-  {
-    text: '健康'
-  },
-  {
-    text: '情感'
-  },
-  {
-    text: '职场'
-  },
-  {
-    text: '育儿'
-  },
-  {
-    text: '纠纷'
-  },
-  {
-    text: '青葱'
-  },
-  {
-    text: '上课'
-  },
-  {
-    text: '下课'
-  }
-];
-
+import styles from './index.less';
+import Index from "@/pages/index";
+import List from "@/pages/list";
 
 
 export default () => {
-  const [data,setData] = useState<Data>({
-    new:[],
-    hotMovies:[],
-    hottv:[],
-    categories:[]
-  });
-  const [movies,setMovies] = useState<Movie[]>([]);
-  const [scrollLeft,setScrollLeft] = useState<Number>(0);
-  const [currentNav,setCurrentNav] = useState<any>({});
+  const [navData,setNavData] = useState<MovieCategory[]>([]);
 
-  const [current,setCurrent] = useState<number>(-1);
-  usePageEvent('onLoad',()=>{
-    request("api/index",(data:Data)=>{
-      setData(data);
-    })
+
+  const [systemInfo,setSystemInfo] = useState<SystemInfo>({
+    pixelRatio:1,
+    windowHeight:1,
+    windowWidth:1,
   });
-  usePageEvent("onPullDownRefresh",()=>{
-    console.log("onPullDownRefresh");
+  const [currentTab,setCurrentTab] = useState<number>(0);
+  const [navScrollLeft,setNavScrollLeft] = useState<number>(0);
+
+  usePageEvent('onLoad',()=>{
+    wx.getSystemInfo({
+      success: (res) => {
+        setSystemInfo({
+          pixelRatio: res.pixelRatio,
+          windowHeight: res.windowHeight,
+          windowWidth: res.windowWidth
+        })
+      },
+    })
   })
 
-  const tabSelect = (id:number,position:number) =>{
-    list(id);
-    setScrollLeft(60*position);
+
+
+  const switchTab=(index:number)=>{
+    setCurrentTab(index);
+    const singleNavWidth = systemInfo.windowWidth / 5;
+    setNavScrollLeft((index - 2) * singleNavWidth);
   }
 
-  const list = (id:number) =>{
-    setCurrent(id);
-    request("api/index",(data:Movie[])=>{
-      setMovies(data);
-    },{
-      data:{
-        categoryId:id
-      }
+  usePageEvent('onLoad',()=>{
+    request("api/categories",(data:MovieCategory[])=>{
+      console.log("-=======================",data);
+      setNavData([
+        {
+          id:0,
+          name:'热门推荐'
+        },
+          ...data,
+      ]);
     })
+  });
+
+  const renderTemplate=(nav:MovieCategory)=>{
+    if(nav.id===0){
+      // 热门推荐
+      return <Index category={nav} />
+    }
+    return <List category={nav} />
   }
 
 
-  const {new:news,hottv,hotMovies,categories} = data;
   return (
     <View className={styles.app}>
-      <Tabs navData={defaultNavData} callback={(currentNav)=>{
-        setCurrentNav(currentNav);
-        console.log("回调",currentNav);
-      }}>
-        <View>我是子玄术={currentNav.text}</View>
-      </Tabs>
+      <ScrollView
+          scrollX
+          className={styles.nav}
+          scrollLeft={navScrollLeft}
+          scrollWithAnimation
+      >
+        {
+          navData.map((nav,index)=>(<View onTap={()=>switchTab(index)} key={index} className={classNames(styles.navItem,currentTab==index ? styles.current: '')}>{nav.name}</View>))
+        }
+      </ScrollView>
+      <Swiper onChange={(event)=>switchTab(event.detail.current)} className={styles.tabBox} current={currentTab} duration={300}>
+        {
+          navData.map((nav,index)=>(<SwiperItem key={index} className={styles.tabContent}>
+            {
+              nav.id===0 ? (<Index category={nav} />) : (<List category={nav} />)
+            }
+          </SwiperItem>))
+        }
+      </Swiper>
     </View>
   );
 };

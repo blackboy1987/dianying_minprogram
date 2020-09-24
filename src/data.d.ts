@@ -1,3 +1,4 @@
+
 export interface Movie {
     vod_name:string;
     vod_pic:string;
@@ -9,4 +10,16 @@ export interface Movie {
 export interface MovieCategory {
     id:number;
     name:string;
+}
+
+interface SystemInfo {
+    pixelRatio:number;
+    windowHeight:number;
+    windowWidth:number;
+}
+
+interface ResponseData{
+    code:number;
+    msg:string;
+    data:any;
 }

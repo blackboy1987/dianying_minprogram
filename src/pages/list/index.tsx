@@ -2,19 +2,18 @@ import * as React from 'react';
 import { View } from 'remax/one';
 import styles from './index.less';
 import {Movie, MovieCategory, ResponseData} from "@/data";
-import { usePageEvent } from 'remax/macro';
+import {usePageEvent} from 'remax/macro';
 import request from "@/util/request";
-import {forwardRef} from "react";
+import MovieItem3 from "@/pages/components/MoveItem3";
 
-interface IndexProps{
-  category:MovieCategory;
+interface ListProps{
+    category:MovieCategory;
 }
 
-export const Index:React.FC<IndexProps> = ({category}) => {
+export const List:React.FC<ListProps> = ({category}) => {
+    const [data, setData] = React.useState<Movie[]>([]);
 
-    const [data, setData] = React.useState();
     usePageEvent("onLoad",()=>{
-        console.log("index==============================================");
         request("/api/list/",(data:ResponseData)=>{
             setData(data.data);
         },{
@@ -26,9 +25,13 @@ export const Index:React.FC<IndexProps> = ({category}) => {
     });
 
   return (
-      <View className={styles.index}>
-          {category.name}
+      <View className={styles.list}>
+          {
+              data.map(movie=>(
+                  <MovieItem3 key={movie.vod_id} />
+              ))
+          }
       </View>
   );
 };
-export default Index;
+export default List;
