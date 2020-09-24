@@ -1,18 +1,23 @@
 import * as React from 'react';
 import {View,Text} from 'remax/one';
-import styles from './index.less';
+import styles from './index.css';
 import {Image} from "remax/wechat";
+import {Movie} from "@/data";
 
-const MovieItem3 = () => {
+interface MovieItem3Props {
+    movie:Movie;
+}
+
+const MovieItem3:React.FC<MovieItem3Props> = ({movie}) => {
   return (
       <View className={styles.item3}>
           <View className={styles.item3Box}>
               <View className={styles.itemImgBox}>
-                  <Image mode="aspectFill" src="https://mahuapic.com/upload/vod/2020-07-19/15951567540.jpg" />
-                  <View className={styles.itemLang}>韩语</View>
-                  <View className={styles.itemVersion}>HD中英双字</View>
+                  <Image mode="aspectFill" src={movie.vod_pic} />
+                  <View className={styles.itemLang}>{movie.vod_lang}</View>
+                  <View className={styles.itemVersion}>{movie.vod_remarks}</View>
               </View>
-              <View className={styles.itemName}>釜山行2：半岛</View>
+              <View className={styles.itemName}>{movie.vod_name}</View>
           </View>
       </View>
   );

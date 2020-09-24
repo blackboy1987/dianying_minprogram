@@ -1,8 +1,8 @@
-
 .app {
     width: 100%;
     height: 100%;
 }
+
 .nav{
     height: 80px;
     width: 100%;
@@ -10,28 +10,47 @@
     overflow: hidden;
     line-height: 80px;
     background: #f7f7f7;
-    font-size: 16px;
+    font-size: 24px;
     white-space: nowrap;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 99;
-    .navItem{
-        width: 20%;
-        display: inline-block;
-        text-align: center;
-    }
-    .current{
-        color:red;
-    }
+}
+.nav .navItem{
+    width: 20%;
+    display: inline-block;
+    text-align: center;
+}
+.nav .current{
+    color:red;
 }
 
 .tabBox{
-    background: greenyellow;
     padding-top: 80px;
-    height: 200vh;
+    height: 100vh;
     box-sizing: border-box;
-    .tabContent{
-        overflow-y: auto !important;
-    }
 }
+.tabBox .tabContent{
+    overflow-y: auto !important;
+}
+.tabBox .tabContent .tabContentScrollView{
+    height: 100vh;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

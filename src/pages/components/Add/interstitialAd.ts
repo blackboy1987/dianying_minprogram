@@ -9,7 +9,6 @@ let interstitialAd:any = null
 
 export const interstitialAdPlay=({adUnitId,load,error,close}:InterstitialAd)=>{
     if(wx.createInterstitialAd&&interstitialAd==null){
-        console.log("wx.createInterstitialAd",wx.createInterstitialAd);
         interstitialAd = wx.createInterstitialAd({ adUnitId })
         interstitialAd.onLoad(() => {
            if(load){

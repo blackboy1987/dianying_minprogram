@@ -1,11 +1,9 @@
 import * as React from 'react';
-import { View } from 'remax/one';
-import {Swiper,SwiperItem,Image} from 'remax/wechat';
+import {Swiper,SwiperItem,Image,View} from 'remax/wechat';
 import styles from './index.css';
 
 const SwiperImage = () => {
   return (
-    <View className={styles.app}>
       <Swiper
           className={styles.swiper}
           indicatorDots
@@ -16,19 +14,22 @@ const SwiperImage = () => {
           easingFunction='easeInCubic'
       >
         <SwiperItem>
-          <Image mode='widthFix' src='https://img.sokoyo-rj.com/tuku/upload/vod/2020-07-20/202007201595246317.jpg' />
-          <view className={styles.swiperItemTitle}>
-            五百十大发射点
-          </view>
+          <View>
+            <Image mode='widthFix' src='https://img.sokoyo-rj.com/tuku/upload/vod/2020-07-20/202007201595246317.jpg' />
+            <view className={styles.swiperItemTitle}>
+              五百十大发射点
+            </view>
+          </View>
         </SwiperItem>
         <SwiperItem>
-          <Image mode='widthFix' src='https://img.sokoyo-rj.com/tuku/upload/vod/2020-08-27/202008271598503929.jpg' />
-          <view className={styles.swiperItemTitle}>
-            五百十大发射点
-          </view>
+          <View>
+            <Image mode='widthFix' src='https://img.sokoyo-rj.com/tuku/upload/vod/2020-07-20/202007201595246317.jpg' />
+            <view className={styles.swiperItemTitle}>
+              五百十大发射点
+            </view>
+          </View>
         </SwiperItem>
       </Swiper>
-    </View>
   );
 };
 

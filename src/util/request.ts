@@ -15,7 +15,6 @@ export interface RequestOption{
 
 
 const request = (url:string,callback:(data:any)=>void,options?:any)=>{
-    console.log("url",url);
     if(!options){
         options = {};
     }
@@ -43,7 +42,6 @@ const request = (url:string,callback:(data:any)=>void,options?:any)=>{
         header,
         success (res) {
             const {statusCode} = res;
-            console.log(url,statusCode);
             if(statusCode>=200&&statusCode<=299){
                 callback(res.data.data);
             }else {
