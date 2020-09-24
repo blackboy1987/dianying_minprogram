@@ -2,7 +2,6 @@ import * as React from 'react';
 import { View } from 'remax/one';
 import styles from './index.css';
 import {Movie, MovieCategory, ResponseData} from "@/data";
-import {usePageEvent} from 'remax/macro';
 import request from "@/util/request";
 import MovieItem3 from "@/pages/components/MoveItem3";
 
@@ -35,13 +34,17 @@ class List extends React.Component<ListProps>{
 
     render(){
         const {data} = this.state;
+        const {category} = this.props;
         return (
-            <View className={styles.list} id='latoutRef'>
-                {
-                    data.map(movie=>(
-                        <MovieItem3 key={movie.vod_id} movie={movie} />
-                    ))
-                }
+            <View className={styles.container}>
+                <View className={styles.title}>最近更新{category.name}</View>
+                <View className={styles.list}>
+                    {
+                        data.map(movie=>(
+                            <MovieItem3 key={movie.vod_id} movie={movie} />
+                        ))
+                    }
+                </View>
             </View>
         )
     }

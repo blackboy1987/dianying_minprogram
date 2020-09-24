@@ -1,14 +1,25 @@
 .item3 {
     padding-top: 0;
     padding-bottom: 10px;
-    width: 33.33%;
     position: relative;
     display: flex;
     transition-duration: 0s;
     flex-direction: column;
     transition: all .6s ease-in-out 0s;
     transform: translateX(0px);
+    color: #666666;
 }
+
+.item3:nth-child(3n+1) {
+    margin-left: 22px;
+}
+.item3:nth-child(3n+2) {
+    margin-left: 22px;
+}
+.item3:nth-child(3n+3) {
+    margin-left: 22px;
+}
+
 .item3 .item3Box{
     width: 220px;
     margin: 0 auto;

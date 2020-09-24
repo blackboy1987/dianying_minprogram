@@ -1,4 +1,14 @@
-.list{
+.container{
+
+}
+.container .title{
+    padding-left:22px;
+    color: #f17b2e;
+    font-size:30px;
+    height: 100px;
+    line-height: 100px;
+}
+.container .list{
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;

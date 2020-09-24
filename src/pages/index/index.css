@@ -1,6 +1,24 @@
 .index{
-    display: flex;
-    flex-wrap: wrap;
-    align-items: flex-start;
-    align-content: flex-start
+
+}
+.index .hotMovies .title{
+    padding-left:22px;
+    color: #f17b2e;
+    font-size:30px;
+    height: 100px;
+    line-height: 100px;
+}
+.index .hottv .title{
+    padding-left:22px;
+    color: #f17b2e;
+    font-size:30px;
+    height: 100px;
+    line-height: 100px;
+}
+.index .news .title{
+    padding-left:22px;
+    color: #f17b2e;
+    font-size:30px;
+    height: 100px;
+    line-height: 100px;
 }

@@ -1,16 +1,24 @@
 .item{
     padding-top: 0px;
     padding-bottom: 10px;
-    width: 50%;
     position: relative;
     display: flex;
     transition-duration: 0s;
     flex-direction: column;
     transition: all .6s ease-in-out 0s;
     transform: translateX(0px);
+    color: #666666;
 }
+
+.item:nth-child(2n+1) {
+    margin-left: 22px;
+}
+.item:nth-child(2n+2) {
+    margin-left: 22px;
+}
+
 .itemVideo{
-    width: 345px;
+    width: 340px;
     box-shadow: 1px 1px 5px #bbb;
     border-radius: 15px;
     overflow: hidden;
@@ -58,11 +66,13 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    font-size:28px;
+    font-size: 27px;
+    color: #333333;
 }
 .videoBasic .text{
-    font-size: 24px;
+    font-size: 22px;
     display: flex;
+    color:#8d8d8d;
 }
 .videoBasic .text .left{
     text-align: left;

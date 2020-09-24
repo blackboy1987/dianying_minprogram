@@ -30,6 +30,7 @@ const request = (url:string,callback:(data:any)=>void,options?:any)=>{
             "content-type": "application/x-www-form-urlencoded",
         }
     }
+    console.log(Constants.baseUrl+url);
     wx.request({
         url: Constants.baseUrl+url,
         method,

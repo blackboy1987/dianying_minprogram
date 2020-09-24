@@ -15,7 +15,7 @@ const SwiperImage = () => {
       >
         <SwiperItem>
           <View>
-            <Image mode='widthFix' src='https://img.sokoyo-rj.com/tuku/upload/vod/2020-07-20/202007201595246317.jpg' />
+            <Image mode='widthFix' src='https://images.cnblogsc.com/pic/upload/vod/2017-09-05/150459575113.jpg' />
             <view className={styles.swiperItemTitle}>
               五百十大发射点
             </view>
@@ -23,7 +23,7 @@ const SwiperImage = () => {
         </SwiperItem>
         <SwiperItem>
           <View>
-            <Image mode='widthFix' src='https://img.sokoyo-rj.com/tuku/upload/vod/2020-07-20/202007201595246317.jpg' />
+            <Image mode='widthFix' src='https://images.cnblogsc.com/pic/upload/vod/2017-09-05/150459575113.jpg' />
             <view className={styles.swiperItemTitle}>
               五百十大发射点
             </view>
