@@ -8,6 +8,7 @@ import styles from './index.css';
 import BannerAd from "@/pages/components/Add/BannerAd";
 import {interstitialAdPlay} from "@/pages/components/Add/interstitialAd";
 import VideoAd from "@/pages/components/Add/VideoAd";
+import {rewardedVideoAdPlay} from "@/pages/components/Add/rewardedVideoAd";
 
 const Play = () => {
 
@@ -21,13 +22,22 @@ const Play = () => {
       <View className={styles.play}>
         <Video
             onPlay={(e)=>console.log("play",e)}
-            onPause={(e)=>console.log("onPause",e)}
+            onPause={(e)=>{
+                interstitialAdPlay({
+                    adUnitId:'adunit-bd3d4cbec78fdf97'
+                })
+            }}
             onEnded={(e)=>console.log("onEnded",e)}
             onFullScreenChange={(e)=>console.log("onFullScreenChange",e)}
-            onWaiting={(e)=>wx.showToast({
-                title:'网络不通畅，看会广告缓冲一下吧',
-                icon:'none'
-            })}
+            onWaiting={(e)=>{
+                wx.showToast({
+                    title:'网络不通畅，看会广告缓冲一下吧',
+                    icon:'none'
+                });
+                rewardedVideoAdPlay({
+                    adUnitId:'adunit-4e45fe796686e1f4'
+                });
+            }}
             onError={(e)=>console.log("onError",e)}
             style={{width:'100%'}}
             autoplay
@@ -50,7 +60,8 @@ const Play = () => {
             objectFit='fill'
             playBtnPosition='center'
             adUnitId='adunit-ef4637cc787de087'
-            showMuteBtn src='https://www.zhuticlub.com:65/20190502/l6VKQxZL/index.m3u8'
+            showMuteBtn
+            src='https://www.zhuticlub.com:65/20190502/l6VKQxZL/index.m3u8'
         />
       </View>
       <View className={styles.tool}>
