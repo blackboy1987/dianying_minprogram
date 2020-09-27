@@ -1,7 +1,6 @@
 import * as React from 'react';
 import {View,Input,Text} from 'remax/one';
 import styles from './index.css';
-import request from "@/util/request";
 import {Movie} from "@/data";
 
 interface SearchBarProps{

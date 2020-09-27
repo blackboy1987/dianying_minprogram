@@ -15,7 +15,25 @@ export const wechat: WechatAppConfig = {
   window: {
     navigationBarBackgroundColor: color,
     navigationBarTitleText: 'Remax One Wechat',
+    navigationStyle:'custom',
   },
+  tabBar:{
+    color: "#999",
+    selectedColor: "#85DA46",
+    borderStyle: "white",
+    backgroundColor: "#fff",
+    list: [{
+      pagePath: "pages/shouye/index",
+      text: "首页",
+      iconPath: "images/home.png",
+      selectedIconPath: "images/home_act.png"
+    }, {
+      pagePath: "pages/search/index",
+      text: "搜索",
+      iconPath: "images/search.png",
+      selectedIconPath: "images/search_act.png"
+    }]
+  }
 };
 
 export const ali: AliAppConfig = {

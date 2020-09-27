@@ -34,6 +34,11 @@ interface SystemInfo {
     windowWidth:number;
 }
 
+interface SiteInfo {
+    name:string;
+    logo:string;
+}
+
 interface ResponseData{
     code:number;
     msg:string;

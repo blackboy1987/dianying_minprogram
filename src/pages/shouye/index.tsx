@@ -9,6 +9,7 @@ import classNames from 'classnames';
 import styles from './index.css';
 import Index from "@/pages/index";
 import List from "@/pages/list";
+import CustomHeader from "@/pages/components/CustomHeader";
 
 
 export default () => {
@@ -56,7 +57,6 @@ export default () => {
 
   usePageEvent('onLoad',()=>{
     request("api/categories",(data:MovieCategory[])=>{
-      console.log("----",data);
       setNavData([
         {
           id:0,
@@ -70,6 +70,7 @@ export default () => {
 
   return (
     <View className={styles.app}>
+      <CustomHeader />
       <ScrollView
           scrollX
           className={styles.nav}
