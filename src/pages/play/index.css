@@ -2,6 +2,12 @@
 .app{
 
 }
+.app .title{
+    font-size:36px;
+    padding-left:16px;
+    height:100px;
+    line-height: 100px;
+}
 .tool{
     height:80px;
     line-height: 80px;
@@ -49,11 +55,18 @@
     margin-bottom: 28px;
 }
 .line .list .item Button{
-    background-color: #85DA46;
     width: 200px;
     height: 60px;
     line-height: 60px;
     font-size: 26px;
+}
+
+.line .list .current{
+    background-color: #85DA46;
+}
+
+.line .list .current Button{
+    background-color: #85DA46;
 }
 
 

@@ -1,0 +1,19 @@
+.list{
+
+}
+.list .listHeader,.list .item{
+    display: flex;
+    text-align: center;
+}
+
+.list .flex1 {
+    flex: 1;
+}
+
+.list .flex2 {
+    flex: 2;
+}
+
+.list .flex3 {
+    flex: 3;
+}

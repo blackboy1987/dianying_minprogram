@@ -1,4 +1,9 @@
 @import "../public/iconfont/iconfont.css";
+
+View,Text,Image {
+  box-sizing: border-box;
+}
+
 page {
   background: #FFF;
   height: 100%;

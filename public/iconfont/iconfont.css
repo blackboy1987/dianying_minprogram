@@ -17,6 +17,10 @@
   padding-right: 8px;
 }
 
+.icon-search:before {
+  content: "\e616";
+}
+
 .icon-weixin:before {
   content: "\e632";
 }

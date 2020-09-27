@@ -15,7 +15,7 @@ interface StateProps {
     data:{
         hotMovies:Movie[];
         hottv:Movie[];
-        new:Movie[];
+        news:Movie[];
     },
 }
 
@@ -25,7 +25,7 @@ class IndexPage extends React.Component<IndexProps> {
         data:{
             hotMovies:[],
             hottv:[],
-            new:[],
+            news:[],
         },
     }
     componentDidMount() {
@@ -36,27 +36,26 @@ class IndexPage extends React.Component<IndexProps> {
             })
         },{
             data:{
-                categoryId:category.id,
                 pageNumber:1
             }
         });
     }
     render() {
-        const {data:{hotMovies=[],hottv=[],new:news=[]}} = this.state;
+        const {data:{hotMovies=[],hottv=[],news=[]}} = this.state;
         return (
             <View className={styles.index}>
                 <SwiperImage />
                 <View className={styles.hotMovies}>
                     <View className={styles.title}><Text className='iconfont icon-shipin' />热播电影</View>
-                    <MovieList3 movies={hotMovies} />
+                    <MovieList3 movies={hotMovies || []} />
                 </View>
                 <View className={styles.hottv}>
-                    <View className={styles.title}><Text className='iconfont icon-shipin' />热播电影</View>
-                    <MovieList3 movies={hottv} />
+                    <View className={styles.title}><Text className='iconfont icon-shipin' />热播电视剧</View>
+                    <MovieList3 movies={hottv || []} />
                 </View>
                 <View className={styles.news}>
-                    <View className={styles.title}><Text className='iconfont icon-shipin' />热播电影</View>
-                    <MovieList2 movies={news} />
+                    <View className={styles.title}><Text className='iconfont icon-shipin' />最近更新</View>
+                    <MovieList2 movies={news || []} />
                 </View>
             </View>
         );

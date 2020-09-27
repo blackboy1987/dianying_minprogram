@@ -12,7 +12,7 @@ const MovieList3:React.FC<MovieList3Props> = ({movies}) => {
   return (
       <View className={styles.list3}>
           {
-              movies.map(movie=>(<MovieItem key={movie.vod_id} movie={movie} />))
+              movies.map(movie=>(<MovieItem key={movie.id} movie={movie} />))
           }
       </View>
   );

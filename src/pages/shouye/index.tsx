@@ -56,6 +56,7 @@ export default () => {
 
   usePageEvent('onLoad',()=>{
     request("api/categories",(data:MovieCategory[])=>{
+      console.log("----",data);
       setNavData([
         {
           id:0,
@@ -81,7 +82,7 @@ export default () => {
       </ScrollView>
       <Swiper onChange={(event)=>switchTab1(event)} className={styles.tabBox} current={currentTab}>
         {
-          navData.map((nav,index)=>(
+          (navData||[]).map((nav,index)=>(
               <SwiperItem key={index} className={styles.tabContent} style={{overflowY:'auto'}}>
                 <ScrollView scrollY className={styles.tabContentScrollView} style={{height:'calc(100vh - 90px)'}}>
                   {

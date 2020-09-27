@@ -20,7 +20,7 @@ class List extends React.Component<ListProps>{
     }
     componentDidMount() {
         const {category} = this.props;
-        request("/api/list/",(data:ResponseData)=>{
+        request("api/list/",(data:ResponseData)=>{
             this.setState({
                 data,
             })
@@ -40,7 +40,7 @@ class List extends React.Component<ListProps>{
                 <View className={styles.title}><Text className='iconfont icon-shipin' />最近更新{category.name}</View>
                 <View className={styles.list}>
                     {
-                        data.map(movie=>(
+                        (data || []).map(movie=>(
                             <MovieItem3 key={movie.vod_id} movie={movie} />
                         ))
                     }
