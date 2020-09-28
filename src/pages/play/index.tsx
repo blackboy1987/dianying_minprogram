@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { View, Text,Button } from 'remax/one';
-import {Video,RichText,Picker} from 'remax/wechat';
+import {Video,Picker} from 'remax/wechat';
 import classNames from 'classnames';
+import {Icon} from 'anna-remax-ui';
 import {usePageEvent} from "remax/macro";
 
 import styles from './index.css';
@@ -13,18 +14,20 @@ import CustomHeader from "@/pages/components/CustomHeader";
 const rates:number[] = [ .5, .8, 1, 1.25, 1.5, 2 ]
 
 const Play = () => {
-    const [rate,setRate] = useState<number>(2);
+    const [rate,setRate] = useState<number>(1);
+    const [rateIndex,setRateIndex] = useState<number>(2);
     const [video,setVideo] = useState<any>(null);
     const [videoInfo,setVideoInfo] = useState<Movie>({});
     const [playUrl,setPlayUrl] = useState<string>('');
     const [playUrlKey,setPlayUrlKey] = useState<string>('');
     usePageEvent('onShow',()=>{
         video.play();
+        setRate(rates[2]);
+        setRateIndex(2);
     });
 
     usePageEvent('onLoad',(e)=>{
         setVideo(wx.createVideoContext("myVideo"));
-        console.log("----------------------------------------");
         // 拉去视频详细信息
         request('api/info',(data)=>{
             console.log("play",data);
@@ -36,8 +39,13 @@ const Play = () => {
         })
     })
 
-    const changeRage=(e)=>{
+    /**
+     * 更改播放速率
+     * @param e
+     */
+    const changeRage=(e:any)=>{
         setRate(rates[e.detail.value]);
+        setRateIndex(e.detail.value);
         video.playbackRate(rates[e.detail.value]);
     }
 
@@ -61,7 +69,19 @@ const Play = () => {
               text: '第 1s 出现的弹幕',
               color: '#ff0000',
               time: 5
+            },{
+                text: '第 1s 出现的弹幕',
+                color: '#ff0000',
+                time: 5
             }, {
+                text: '第 1s 出现的弹幕',
+                color: '#ff0000',
+                time: 5
+            }, {
+                text: '第 1s 出现的弹幕',
+                color: '#ff0000',
+                time: 5
+            },  {
               text: '第 3s 出现的弹幕',
               color: '#ff00ff',
               time: 10
@@ -74,30 +94,24 @@ const Play = () => {
             objectFit='fill'
             playBtnPosition='center'
             showMuteBtn
-            enableAutoRotation
         />
       </View>
         <View className={styles.title}>
             {videoInfo.title}
         </View>
       <View className={styles.tool}>
-          <View>
-              <Text className="icon48 iconfont icon-weixin" />
-              <Text>分享好友</Text>
+          <View style={{textAlign:'center'}}>
+              <Icon type='share' size='40' />
+              <Text>分享</Text>
           </View>
-          <View>
-              <Text className="icon48 iconfont icon-kefu" />
-              <Text>联系客服</Text>
+          <View style={{textAlign:'center'}}>
+              <Icon type='message' size='40' />
+              <Text>留言</Text>
           </View>
-        <View>
-            <Text className="icon48 iconfont icon-xiazai" />
-            <Text>联系客服</Text>
-        </View>
-
-          <View>
-              <Picker onChange={changeRage} value={rate} range={rates} style={{display:'flex'}}>
-                  <Text className="icon48 iconfont icon-ai19" />
-                  <View>1x 倍</View>
+          <View style={{textAlign:'center'}}>
+              <Picker onChange={changeRage} value={rateIndex} range={rates} style={{display:'flex'}}>
+                  <Icon type='play_forward_fill' size='40' />
+                  <View>{rate}x 倍</View>
               </Picker>
           </View>
       </View>
