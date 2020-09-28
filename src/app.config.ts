@@ -1,6 +1,6 @@
 const pages = [
-    'pages/search/index',
     'pages/shouye/index',
+    'pages/search/index',
     'pages/play/index',
 ];
 const color = '#282c34';

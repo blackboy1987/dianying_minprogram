@@ -8,6 +8,7 @@ import styles from './index.css';
 import {useState} from "react";
 import request from "@/util/request";
 import {Movie} from "@/data";
+import CustomHeader from "@/pages/components/CustomHeader";
 
 const rates:number[] = [ .5, .8, 1, 1.25, 1.5, 2 ]
 
@@ -23,8 +24,10 @@ const Play = () => {
 
     usePageEvent('onLoad',(e)=>{
         setVideo(wx.createVideoContext("myVideo"));
+        console.log("----------------------------------------");
         // 拉去视频详细信息
         request('api/info',(data)=>{
+            console.log("play",data);
             setPlayUrl(data.playUrls[0].urls[0].split("$")[1]);
             setPlayUrlKey("0_0");
             setVideoInfo(data);
@@ -46,6 +49,7 @@ const Play = () => {
 
   return (
     <View className={styles.app}>
+        <CustomHeader />
       <View className={styles.play}>
         <Video
             id='myVideo'

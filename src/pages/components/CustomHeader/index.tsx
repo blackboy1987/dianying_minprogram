@@ -7,20 +7,20 @@ import {useState} from "react";
 import {getStorage} from "@/util/wxUtils";
 import {SiteInfo} from "@/data";
 
-const CustomHeader = () =>{
 
-    const [siteInfo,setSiteInfo] = useState<SiteInfo>({});
+class CustomHeader extends React.Component {
 
-    usePageEvent('onLoad',()=>{
-        setSiteInfo(getStorage("siteInfo"));
-    });
-
-    return (
-        <View className={styles.customHeader} style={{background:'green',color:'#FFF'}}>
-            {siteInfo.name}
-        </View>
-    )
+    render(){
+        const siteInfo = getStorage("siteInfo");
+        return (
+            <View className={styles.customHeader} style={{
+                background:'green',
+                color:'#FFF'
+            }}>
+                {siteInfo.name}
+            </View>
+        );
+    }
 }
-
 
 export default CustomHeader;
