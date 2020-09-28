@@ -9,15 +9,28 @@
     line-height: 100px;
 }
 .tool{
-    height:80px;
-    line-height: 80px;
+    height:100px;
+}
+
+.tool .content{
+    margin:0 16px;
+    width: 718px;
     display: flex;
     justify-content: space-around;
 }
 
-.tool View{
+.tool .content .item{
+    width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+.tool .content .item>Button{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
 }
 

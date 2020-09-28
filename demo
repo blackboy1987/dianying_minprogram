@@ -1,0 +1,15 @@
+<View style={{textAlign:'center',border:'solid 1px red'}}>
+              <Button className='no-border' style={{border:'solid 1px red',position:'absolute',width:'100%',height:'100%'}} openType='share' />
+              <Icon type='share' size='40' />
+              <Text>分享</Text>
+          </View>
+          <View style={{textAlign:'center'}}>
+              <Icon type='message' size='40' />
+              <Text>留言</Text>
+          </View>
+          <View style={{textAlign:'center'}}>
+              <Picker onChange={changeRage} value={rateIndex} range={rates} style={{display:'flex'}}>
+                  <Icon type='play_forward_fill' size='40' />
+                  <View>{rate}x 倍</View>
+              </Picker>
+          </View>

@@ -1,6 +1,6 @@
 import * as React from 'react';
-import { View, Text,Button } from 'remax/one';
-import {Video,Picker} from 'remax/wechat';
+import { View, Text } from 'remax/one';
+import {Video,Picker,Button} from 'remax/wechat';
 import classNames from 'classnames';
 import {Icon} from 'anna-remax-ui';
 import {usePageEvent} from "remax/macro";
@@ -25,6 +25,14 @@ const Play = () => {
         setRate(rates[2]);
         setRateIndex(2);
     });
+
+    usePageEvent('onShareAppMessage',()=>{
+        return {
+            title: videoInfo.title,
+            path: "/pages/play/index?id=" + videoInfo.id + "&is_share=1",
+            imageUrl: videoInfo.img
+        };
+    })
 
     usePageEvent('onLoad',(e)=>{
         setVideo(wx.createVideoContext("myVideo"));
@@ -57,7 +65,7 @@ const Play = () => {
 
   return (
     <View className={styles.app}>
-        <CustomHeader />
+        <CustomHeader showBack backgroundColor='#000' />
       <View className={styles.play}>
         <Video
             id='myVideo'
@@ -100,19 +108,23 @@ const Play = () => {
             {videoInfo.title}
         </View>
       <View className={styles.tool}>
-          <View style={{textAlign:'center'}}>
-              <Icon type='share' size='40' />
-              <Text>分享</Text>
-          </View>
-          <View style={{textAlign:'center'}}>
-              <Icon type='message' size='40' />
-              <Text>留言</Text>
-          </View>
-          <View style={{textAlign:'center'}}>
-              <Picker onChange={changeRage} value={rateIndex} range={rates} style={{display:'flex'}}>
-                  <Icon type='play_forward_fill' size='40' />
-                  <View>{rate}x 倍</View>
-              </Picker>
+          <View className={styles.content}>
+              <View className={styles.item}>
+                  <Button className='no-border' openType='share'>
+                      <Icon type='share' size='40' />
+                      <Text>分享</Text>
+                  </Button>
+              </View>
+              <View className={styles.item}>
+                  <Icon type='message' size='40' />
+                  <Text>留言</Text>
+              </View>
+              <View className={styles.item}>
+                  <Picker onChange={changeRage} value={rateIndex} range={rates}>
+                      <Icon type='play_forward_fill' size='40' />
+                      <View>{rate}x 倍</View>
+                  </Picker>
+              </View>
           </View>
       </View>
         {

@@ -15,6 +15,10 @@ export interface RequestOption{
 
 
 const request = (url:string,callback:(data:any)=>void,options?:any)=>{
+    wx.showLoading({
+        title:"数据加载中",
+        mask:true,
+    })
     if(!options){
         options = {};
     }
@@ -30,7 +34,6 @@ const request = (url:string,callback:(data:any)=>void,options?:any)=>{
             "content-type": "application/x-www-form-urlencoded",
         }
     }
-    console.log(Constants.baseUrl+url);
     wx.request({
         url: Constants.baseUrl+url,
         method,
@@ -42,6 +45,7 @@ const request = (url:string,callback:(data:any)=>void,options?:any)=>{
         },
         header,
         success (res) {
+            wx.hideLoading();
             const {statusCode} = res;
             if(statusCode>=200&&statusCode<=299){
                 callback(res.data.data);
@@ -53,6 +57,7 @@ const request = (url:string,callback:(data:any)=>void,options?:any)=>{
             }
         },
         fail(err){
+            wx.hideLoading();
             wx.showToast({
                 title:'请求失败',
                 image:'/images/errorClick.png'

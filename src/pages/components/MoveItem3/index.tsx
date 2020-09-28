@@ -15,7 +15,7 @@ const MovieItem3:React.FC<MovieItem3Props> = ({movie}) => {
           <View className={styles.item3Box}>
               <View className={styles.itemImgBox}>
                   <Image mode="aspectFill" src={movie.img} />
-                  <View className={styles.itemLang}>{movie.vod_lang}</View>
+                  <View className={styles.itemLang}>{movie.lang}</View>
                   <View className={styles.itemVersion}>{movie.vod_remarks}</View>
               </View>
               <View className={styles.itemName}>{movie.title}</View>

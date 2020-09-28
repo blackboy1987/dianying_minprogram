@@ -2,12 +2,12 @@ interface PlayUrl{
     urls:string[];
 }
 export interface Movie {
+    lang?:string;
+    area?:string;
     vod_name?:string;
     vod_pic?:string;
     vod_id?:string;
-    vod_lang?:string;
     vod_actor?:string;
-    vod_area?:string;
     vod_content?:string;
     vod_remarks?:string;
     vod_director?:string;

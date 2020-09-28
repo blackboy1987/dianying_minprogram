@@ -8,3 +8,15 @@ page {
   background: #FFF;
   height: 100%;
 }
+
+.no-border{
+  background: none !important;
+  color: #000 !important;
+}
+.no-border:after{
+  border: none;
+}
+
+.flex{
+  display: flex;
+}

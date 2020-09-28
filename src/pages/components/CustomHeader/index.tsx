@@ -1,23 +1,39 @@
 import * as React from 'react';
-import {View,Input,Text} from 'remax/one';
+import {View} from 'remax/one';
 
-import {usePageEvent} from 'remax/macro';
 import styles from './index.css';
-import {useState} from "react";
+import {Icon} from 'anna-remax-ui';
 import {getStorage} from "@/util/wxUtils";
-import {SiteInfo} from "@/data";
 
+interface CustomHeaderProps {
+    backgroundColor?:string;
+    showBack?:boolean;
+}
 
-class CustomHeader extends React.Component {
-
+class CustomHeader extends React.Component<CustomHeaderProps> {
     render(){
+        const {backgroundColor,showBack} = this.props;
         const siteInfo = getStorage("siteInfo");
         return (
             <View className={styles.customHeader} style={{
-                background:'green',
+                background:backgroundColor || 'green',
                 color:'#FFF'
             }}>
-                {siteInfo.name}
+                {
+                    showBack ? (
+                        <View className={styles.back}>
+                            <Icon type='back' size='38' color='#fff' />
+                        </View>
+                    ) : null
+                }
+                <View className={styles.title}>
+                    {siteInfo.name}
+                </View>
+                {
+                    showBack ? (
+                        <View className={styles.back} />
+                    ) : null
+                }
             </View>
         );
     }

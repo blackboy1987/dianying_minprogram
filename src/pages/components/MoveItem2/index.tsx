@@ -17,7 +17,7 @@ const MovieItem2:React.FC<MovieItem2Props> = ({movie}) => {
                   <Image mode='aspectFill' src= {movie.img} />
                   <View className={styles.videoItemBannerVersion}>
                       <View className={styles.videoItemBannerVersionFlex}>
-                          <View className={styles.lang}>{movie.vod_lang}</View>
+                          <View className={styles.lang}>{movie.lang}</View>
                           <View className={styles.remarks}>{movie.vod_remarks}</View>
                       </View>
                   </View>
@@ -26,7 +26,7 @@ const MovieItem2:React.FC<MovieItem2Props> = ({movie}) => {
                   <View className={styles.videoTitle}>{movie.title}</View>
                   <View className={styles.text}>
                       <View className={styles.left}>动漫</View>
-                      <View className={styles.right}>大陆</View>
+                      <View className={styles.right}>{movie.area}</View>
                   </View>
               </View>
           </View>
