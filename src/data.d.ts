@@ -4,6 +4,8 @@ interface PlayUrl{
 export interface Movie {
     lang?:string;
     area?:string;
+    actors?:string;
+    director?:string;
     vod_name?:string;
     vod_pic?:string;
     vod_id?:string;

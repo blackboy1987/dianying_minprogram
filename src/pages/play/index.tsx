@@ -10,6 +10,8 @@ import {useState} from "react";
 import request from "@/util/request";
 import {Movie} from "@/data";
 import CustomHeader from "@/pages/components/CustomHeader";
+import Detail from "@/pages/play/Detail";
+import Memo from "@/pages/play/Memo";
 
 const rates:number[] = [ .5, .8, 1, 1.25, 1.5, 2 ]
 
@@ -127,6 +129,7 @@ const Play = () => {
               </View>
           </View>
       </View>
+        <Detail movie={videoInfo} />
         {
             videoInfo.playUrls&&videoInfo.playUrls.map((playUrl,index)=>(
                 <View key={index} className={styles.line}>
@@ -147,6 +150,7 @@ const Play = () => {
                 </View>
             ))
         }
+        <Memo content={videoInfo.content} />
     </View>
   );
 };
