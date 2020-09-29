@@ -6,6 +6,7 @@ export interface Movie {
     area?:string;
     actors?:string;
     director?:string;
+    content?:string;
     vod_name?:string;
     vod_pic?:string;
     vod_id?:string;

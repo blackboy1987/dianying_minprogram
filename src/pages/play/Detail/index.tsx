@@ -20,7 +20,7 @@ const Detail:React.FC<DetailProps> = ({movie}) =>{
                     <View className={styles.name}>{movie.title}</View>
                     <View>
                         <Text className={styles.title1}>别名：</Text>
-                        <Text className={styles.text}>吴</Text>
+                        <Text className={styles.text}>无</Text>
                     </View>
                     <View>
                         <Text className={styles.title1}>主演：</Text>
@@ -30,7 +30,7 @@ const Detail:React.FC<DetailProps> = ({movie}) =>{
                     </View>
                     <View>
                         <Text className={styles.title1}>类型：</Text>
-                        <Text className={styles.text}>吴</Text>
+                        <Text className={styles.text}>无</Text>
                     </View>
                     <View>
                         <Text className={styles.title1}>导演：</Text>
